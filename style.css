@@ -1,0 +1,135 @@
+html {
+    --galvenes-augstums: 60px;
+    scroll-snap-type: y mandatory;
+}
+
+html[data-theme="light"]{
+    --primary-color: #ECCDB4;
+    --primary-color2: #F0EDD4;
+    --primary-color3:#F9FBE7 ;
+    --text-color: black;
+    --invert: 0%;
+}
+  
+html[data-theme="dark"]{
+    --primary-color: #5C469C;
+    --primary-color2: #1D267D;
+    --primary-color3: #0C134F;
+    --text-color: white;
+    --invert: 100%;
+}
+  
+body{
+    background-color: var(--primary-color2);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--galvenes-augstums);
+    width: 100vw;
+    background-color:var(--primary-color);
+  }
+
+main {
+    padding-top: var(--galvenes-augstums);
+    margin-left: 50px;
+}
+
+section{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+.container{
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 500px);
+    grid-template-rows: repeat(2, 140px);
+    gap: 40px;
+}
+
+.button_class{
+    position: absolute;
+    width: 500px;
+    height: 140px;
+    opacity: 0.3;
+    z-index: 10;
+    border-radius: 15px;
+  
+    
+}
+
+.item{
+    background-color:var(--primary-color3);
+    border-radius: 15px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#toggle-theme{
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+.input{
+    height: 20px;
+    width: 20px;
+}
+
+.mode_img{
+    filter: invert(var(--invert));
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+#dark_img{
+    visibility: hidden;
+}
+
+#toggle-theme:checked ~ #dark_img {
+    visibility: visible;
+}
+
+#light_img{
+    visibility: visible;
+}
+
+#toggle-theme:checked ~ #light_img {
+    visibility: hidden;
+}
+
+.p-text{
+    margin-top: 90px;
+}
+
+p{
+    margin: 0px;
+    font-size: 40px;
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#correct.green{
+    --primary-color3:green;
+}
+#wrong.red{
+    --primary-color3:red;
+}
